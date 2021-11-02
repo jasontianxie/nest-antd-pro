@@ -1,7 +1,7 @@
-import { DataInterceptor } from './data.interceptor';
+import { TransformInterceptor } from './data.interceptor';
 
 describe('DataInterceptor', () => {
   it('should be defined', () => {
-    expect(new DataInterceptor()).toBeDefined();
+    expect(new TransformInterceptor()).toBeDefined();
   });
 });
