@@ -5,8 +5,8 @@ import {
     PrimaryGeneratedColumn,
   } from 'typeorm';
   
-  @Index('uk_mobile', ['mobile'], { unique: true })
-  @Entity('st_user', { schema: 'stock_demo' })
+  @Index('uk_mobile', ['mobile'], { unique: true }) // 创建索引，https://typeorm.io/#/indices
+  @Entity('st_user', { schema: 'nest_antd_pro_blog' }) // 相关参数，https://typeorm.io/#/decorator-reference/entity
   export class StUser {
     @PrimaryGeneratedColumn({ type: 'int', name: 'id', comment: '主键id' })
     id: number;
