@@ -12,7 +12,7 @@ export class ValidationPipe implements PipeTransform<any> {
     const errors = await validate(object);
     if (errors.length > 0) {
       const error = errors.shift();
-      for (const key in error.constraints) {
+      for (const key in error.constraints) { // 参考https://zhuanlan.zhihu.com/p/360819827
         throw new BadRequestException(error.constraints[key]);
       }
     }
