@@ -27,4 +27,9 @@ export class UserService {
         throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
       });
   }
+
+  async findByMobile(mobile: string): Promise<StUser> { // 在数据库中根据用户手机号查找信息
+    const result = await this.stUserRepository.findOne({ mobile });
+    return result;
+  }
 }
