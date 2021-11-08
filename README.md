@@ -1,2 +1,4 @@
 # nest-antd-pro
-# 参考：https://www.zhihu.com/column/c_1225790211717857280
+## back end: nest + typeORM + MySQL
+## how to run locally
+### npm i && npm start 
