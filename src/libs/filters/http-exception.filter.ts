@@ -11,10 +11,11 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
     const status = exception.getStatus();
+    const [ customcode, message ] = exception.message.split('@@')
 
     response.status(status).json({
-      code: exception.getStatus(),
-      message: exception.message,
+      code: Number(customcode) || exception.getStatus(),
+      message: message,
       data: null
     });
   }
