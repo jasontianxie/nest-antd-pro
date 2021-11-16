@@ -22,7 +22,7 @@ export class AppController {
   }
 
   @UseGuards(AuthGuard('jwt'))
-  @Get('profile')
+  @Get('user/profile')
   getProfile(@Request() req) { // 这里的req.user就是src\modules\auth\strategies\jwt.strategy.ts中的validate返回的数据
     return req.user;
   }
