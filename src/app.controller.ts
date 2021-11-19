@@ -17,13 +17,13 @@ export class AppController {
 
   @UseGuards(AuthGuard('local'))
   @Post('auth/login')
-  async login(@Request() req) { // 这里的req.user就是src\modules\auth\strategies\local.strategy.ts中的validate返回的数据
+  async login(@Request() req) { // 这里的req.user就是src\modules\auth\strategies\local.strategy.ts中的validate返回的数据，相当于守卫改变了http请求的请求体数据
     return this.authService.login(req.user); // 向客户端返回登录成功后的jwt
   }
 
   @UseGuards(AuthGuard('jwt'))
   @Get('user/profile')
-  getProfile(@Request() req) { // 这里的req.user就是src\modules\auth\strategies\jwt.strategy.ts中的validate返回的数据
+  getProfile(@Request() req) { // 这里的req.user就是src\modules\auth\strategies\jwt.strategy.ts中的validate返回的数据，相当于守卫改变了http请求的请求体数据
     return req.user;
   }
 }

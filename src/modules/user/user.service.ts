@@ -14,12 +14,12 @@ export class UserService {
   ) {}
 
   async create(dto: CreateUserDto) {
-    const user = this.stUserRepository.create(dto); // typeorm中repository的操作，create用于创建一个实体，https://typeorm.biunav.com/zh/repository-api.html#repositoryapi
+    const user = this.stUserRepository.create(dto); // typeorm中repository的操作，create用于创建一条数据库条目，如果有参数则会把这些参数放到条目中，如果没有参数，则是一条空的条目。但是注意，此时并没有真正的插入数据库，需要调用save方法才能真正插入，https://typeorm.biunav.com/zh/repository-api.html#repositoryapi
     const salt = bcrypt.genSaltSync(10);
     user.salt = salt;
     user.password = bcrypt.hashSync(user.password, salt);
     return this.stUserRepository
-      .save(user)
+      .save(user) // 保存上面this.stUserRepository.create生成的条目
       .then((res) => {
         return { id: res.id };
       })

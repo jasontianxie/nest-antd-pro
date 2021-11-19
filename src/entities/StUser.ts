@@ -5,8 +5,8 @@ import {
     PrimaryGeneratedColumn,
   } from 'typeorm';
   
-  @Index('uk_mobile', ['mobile'], { unique: true }) // 创建索引，https://typeorm.io/#/indices
-  @Entity('st_user', { schema: 'nest_antd_pro_blog' }) // 相关参数，https://typeorm.io/#/decorator-reference/entity
+  @Index('uk_mobile', ['mobile'], { unique: true }) // 创建索引，https://typeorm.io/#/indices，https://typeorm.biunav.com/zh/indices.html#%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95
+  @Entity('st_user', { schema: 'nest_antd_pro_blog' }) // st_user是数据表的名称，schema是数据库的名称。通常Entity都不用参数。相关参数，https://typeorm.io/#/decorator-reference/entity
   export class StUser {
     @PrimaryGeneratedColumn({ type: 'int', name: 'id', comment: '主键id' })
     id: number;
