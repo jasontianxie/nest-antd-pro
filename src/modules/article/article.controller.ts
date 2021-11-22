@@ -8,12 +8,11 @@ import { ValidationPipe } from '../../libs/pipes/params-validation.pipe';
 import { ArticleService } from './article.service';
 
 @Controller('/api/article')
-@UseGuards(AuthGuard('jwt'))
 export class ArticleController {
     constructor(private readonly articleService: ArticleService) {}
 
     @Post('update')
-    @UseGuards(RolesGuard)
+    @UseGuards(AuthGuard('jwt'), RolesGuard)
     @Roles(UserRole.ADMIN)
     async update(@Body(new ValidationPipe())data : ArticleUpdateDto){
         return this.articleService.update(data);
