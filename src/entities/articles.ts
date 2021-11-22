@@ -31,6 +31,9 @@ import {
   
     @Column('text', { name: 'article', comment: '文章内容' })
     article: string;
+
+    @Column('text', { name: 'article_title', comment: '文章标题' })
+    articleTitle: string;
   
     @Column('datetime', {
       name: 'create_dt',

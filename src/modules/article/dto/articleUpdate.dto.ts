@@ -15,4 +15,12 @@
        message: 'article should be string'
      })
      readonly article: string;
+
+     @IsNotEmpty({
+      message: 'articleTitle can not be empty'
+    })
+     @IsString({
+      message: 'article should be string'
+      })
+      readonly articleTitle: string;
    }
