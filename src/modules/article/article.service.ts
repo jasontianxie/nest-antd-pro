@@ -32,5 +32,21 @@ export class ArticleService {
                     throw new HttpException(e.message || 'database action fail', HttpStatus.INTERNAL_SERVER_ERROR);
                 });
         }
-      }  
+      }
+    async getArticles() {
+        return this.articlesRepository.find()
+        .then( res => res)
+        .catch((e) => {
+            throw new HttpException(e.message || 'database action fail', HttpStatus.INTERNAL_SERVER_ERROR);
+        });
+    }
+
+    async getArticle(id: number) {
+        return this.articlesRepository
+        .findOne(id)
+        .then( res => res)
+        .catch((e) => {
+            throw new HttpException(e.message || 'database action fail', HttpStatus.INTERNAL_SERVER_ERROR);
+        });
+}
 }
