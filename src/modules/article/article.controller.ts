@@ -1,4 +1,4 @@
-import { Controller, Post, UseGuards, Body, Get, Param } from '@nestjs/common';
+import { Controller, Post, UseGuards, Body, Get, Param, Delete } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Roles } from '../../libs/decorators/role.decorator';
 import { UserRole } from '../../libs/enums/role-enum';
@@ -16,6 +16,13 @@ export class ArticleController {
     @Roles(UserRole.ADMIN)
     async update(@Body(new ValidationPipe())data : ArticleUpdateDto){
         return this.articleService.update(data);
+    }
+
+    @Delete(':id')
+    @UseGuards(AuthGuard('jwt'), RolesGuard)
+    @Roles(UserRole.ADMIN)
+    async delete(@Param('id') id: number){
+        return this.articleService.delete(id);
     }
 
     @Get('all')

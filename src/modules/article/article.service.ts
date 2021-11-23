@@ -48,5 +48,14 @@ export class ArticleService {
         .catch((e) => {
             throw new HttpException(e.message || 'database action fail', HttpStatus.INTERNAL_SERVER_ERROR);
         });
-}
+    }
+
+    async delete(id: number) {
+        return this.articlesRepository
+        .delete(id)
+        .then(() => 'delete success')
+        .catch((e) => {
+            throw new HttpException(e.message || 'database action fail', HttpStatus.INTERNAL_SERVER_ERROR);
+        });
+    }
 }
