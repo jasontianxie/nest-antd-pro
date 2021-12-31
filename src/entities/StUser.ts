@@ -26,9 +26,9 @@ import {
       name: 'role',
       comment: '角色：100 超级管理员，0 普通用户',
       width: 1,
-      default: () => "'0'",
+      default: () => "0",
     })
-    role: boolean;
+    role: number;
   
     @Column('varchar', { name: 'password', comment: '密码', length: 100 })
     password: string;
@@ -51,10 +51,10 @@ import {
     updateDt: Date | null;
   
     @Column('tinyint', {
-      name: 'is_delete',
-      comment: '是否删除',
+      name: 'is_disabled',
+      comment: '是否禁用',
       width: 1,
-      default: () => "'0'",
+      default: () => "'0'", // 为什么这里的default设置了还是不起作用？
     })
-    isDelete: boolean;
+    isDelete: number;
   }

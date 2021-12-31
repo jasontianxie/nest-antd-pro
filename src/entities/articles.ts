@@ -2,6 +2,7 @@
 //     id int(11) NOT NULL AUTO_INCREMENT,
 //     user_id int(11) NOT NULL COMMENT 'userid',
 //     article TEXT COMMENT 'article',
+//     article_title VARCHAR(200) COMMENT 'article title',
 //     create_dt datetime NOT NULL DEFAULT now() COMMENT 'create time',
 //     update_dt timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'update time',
 //     audit int(1) NOT NULL COMMENT 'audit or not',

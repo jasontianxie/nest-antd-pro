@@ -21,4 +21,9 @@ export class CreateUserDto {
       message: 'password can not be empty'
     })
     readonly password: string;
+
+    @IsNotEmpty({
+      message: 'role can not be empty'
+    })
+    readonly role: number;
   }
